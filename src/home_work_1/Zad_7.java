@@ -14,18 +14,18 @@ public class Zad_7 {
         byte[] binar = new byte[8];
         String toBinary = "0";
         if (number >= 0 ) {
-            for (byte i = 0; i < 7; i++) {
+            for (byte i = 0; i < 8; i++) {
                 binar[i] = (byte) (number % 2);
                 number = (byte) (number / 2);
             }
 
         } else {
             number = (byte) (number * (-1) -1);
-            for (byte i = 0; i < 7; i++) {
+            for (byte i = 0; i < 8; i++) {
                 binar[i] = (byte) (1- (number % 2));
                 number = (byte) (number / 2);
             }
-            binar [7] = 1;
+
 
         }
         toBinary = ""+ binar[7] +  binar[6]+ binar[5]+binar[4]+binar[3]+ binar[2]+binar[1]+binar[0];
