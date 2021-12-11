@@ -7,10 +7,10 @@ package Home_work2.loops;
 
 import java.util.Scanner;
 
-public class Zad1_1_1 {
+public class Zad1_1_2 {
     public static void main(String[] args) {
         int product = 1;
-        int number = 0;
+        int number;
         String expression = "1";
 
         Scanner q = new Scanner(System.in);
