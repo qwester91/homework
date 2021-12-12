@@ -3,37 +3,35 @@ package Home_work2.loops;
 //          исполняемой программе. Есть нюанс с переполнением, можно добавить проверки
 //          и сообщения пользователю. Пример: Ввели 5, должно получиться в
 //          консоли: 1 * 2 * 3 * 4 * 5 = ответ
-//          1.1.1. Используя только цикл
+//          1.1.2. Используя рекурсию
 
-import java.util.Scanner;
+
 
 public class Zad1_1_2 {
     public static void main(String[] args) {
-        int product = 1;
-        int number;
+
+        Long number;
         String expression = "1";
 
-        Scanner q = new Scanner(System.in);
+
 
 
         try {
-           number =  Integer.parseInt(args[0]);
-        }
-        catch (Exception e) {
+            number = Long.parseLong(args[0]);
+        } catch (Exception e) {
             System.out.println("Аргумент программы не является числом");
             return;
         }
 
 
         // переводим строку в число
-            number = Integer.parseInt(args[0]);
+        number = Long.parseLong(args[0]);
 
         System.out.println("аргумент = " + number);
 
-
         if (number < 0) {  // проверка на отрицатльность
             System.out.println("Вы запустили программу с отрицательным аргументом");
-            return;
+            return ;
 
         } else if (number == 0) { // проверка на ноль
             System.out.println("Вы запустили программу с аргументом равным нулю");
@@ -47,15 +45,29 @@ public class Zad1_1_2 {
 
         }
 
-
-         do {                          // считаем результат перемножения
-             product *= number;
-             number--;
-         } while (number > 1);
+        System.out.println(expression + " = " + result(number));    // вывод результата в консоль
+    }
 
 
-         System.out.println(expression + " = " + product);    // вывод результата в консоль
+    public static long result (Long n) {    // рекурсивная функция
+        long chislo = 1;
+
+
+        if (n == 1){                    // условие выхода из рекурсии
+            return chislo = 1;
+        }
+        if (chislo < 0 ){
+            System.out.println("переполнение батенька");
+            n = 1L;
+            return chislo = 0;
+
+        }
+        return
+                chislo = n * result(n-1);    // само рекурсивное выражение
+
+
 
 
     }
+
 }

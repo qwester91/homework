@@ -5,19 +5,18 @@ package Home_work2.loops;
 //          консоли: 1 * 2 * 3 * 4 * 5 = ответ
 //          1.1.1. Используя только цикл
 
-import java.util.Scanner;
+
 
 public class Zad1_1_1 {
     public static void main(String[] args) {
-        int product = 1;
-        int number = 0;
+        Long product = 1L;
+        Long number = 0L;
         String expression = "1";
 
-        Scanner q = new Scanner(System.in);
 
 
         try {
-           number =  Integer.parseInt(args[0]);
+           number =  Long.parseLong(args[0]);
         }
         catch (Exception e) {
             System.out.println("Аргумент программы не является числом");
@@ -26,7 +25,7 @@ public class Zad1_1_1 {
 
 
         // переводим строку в число
-            number = Integer.parseInt(args[0]);
+            number = Long.parseLong(args[0]);
 
         System.out.println("аргумент = " + number);
 
