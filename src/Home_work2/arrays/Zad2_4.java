@@ -8,6 +8,7 @@ package Home_work2.arrays;
 //        2.4.5. Сжать массив, удалив элементы, принадлежащие интервалу
 //        2.4.6. Сумма цифр массива
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Zad2_4 {
@@ -20,31 +21,15 @@ public class Zad2_4 {
     sumNumber();
     }
 
-    public static int[] array() {             // генерируем массив (сбросил сюда повторяющиеся действия актуальные для всех методов в классе)
-        Scanner in = new Scanner(System.in);
 
+// 2.4.1. Сумма четных положительных элементов массива
 
-        System.out.println("Введите желаемую длину массива");
-        int size = in.nextInt();
+    public static void sumEvenPositive() {
+//       int [] arr = ArraysUtils.arrayRandomText();   //если хочешь ввести параметры массива с клавиатуры, раскомментируй эту строку, и закомментируй три следующие
+       int [] arr = ArraysUtils.arrayRandom(10,50);       //вот эту
+       System.out.println("вот наш массив:");                                //эту
+       System.out.println(Arrays.toString(arr));                             // и эту
 
-        System.out.println("Введите максимально возможное значение элемента массива");
-        int maxValue = in.nextInt();
-
-        int[] arr = ArraysUtils.arrayRandom(size, maxValue);
-        System.out.println("Вот наш сгенерированный массив:");
-
-        int i = 0;
-
-        do {                                // выводим наш массив в консоль (интересно же)
-            System.out.println(arr[i]);
-            i++;
-        } while (i < arr.length);
-        return arr;
-    }
-
-
-    public static void sumEvenPositive() {         // 2.4.1. Сумма четных положительных элементов массива
-       int [] arr = array();
        String result = "";
 
         int sum = 0;
@@ -70,8 +55,17 @@ public class Zad2_4 {
 
     }
 
-    public static void maxPositiveEvenIndex() {         //     2.4.2. Максимальный из элементов массива с четными индексами
-        int [] arr = array();
+
+
+    //     2.4.2. Максимальный из элементов массива с четными индексами
+
+    public static void maxPositiveEvenIndex() {
+        //       int [] arr = ArraysUtils.arrayRandomText();   //если хочешь ввести параметры массива с клавиатуры, раскомментируй эту строку, и закомментируй три следующие
+        int [] arr = ArraysUtils.arrayRandom(10,50);       //вот эту
+        System.out.println("вот наш массив:");                                //эту
+        System.out.println(Arrays.toString(arr));                             // и эту
+
+
         System.out.println("Элементы массива с четными индексами: ");
 
         int maxArg = 0;
@@ -87,9 +81,14 @@ public class Zad2_4 {
 
 
 
-    public static void lessThanAverage() {             //        2.4.3. Элементы массива, которые меньше среднего арифметического
+    //        2.4.3. Элементы массива, которые меньше среднего арифметического
 
-        int [] arr = array();
+    public static void lessThanAverage() {
+
+        //       int [] arr = ArraysUtils.arrayRandomText();   //если хочешь ввести параметры массива с клавиатуры, раскомментируй эту строку, и закомментируй три следующие
+        int [] arr = ArraysUtils.arrayRandom(10,50);       //вот эту
+        System.out.println("вот наш массив:");                                //эту
+        System.out.println(Arrays.toString(arr));                             // и эту
         double sum = 0;
 
 
@@ -110,10 +109,16 @@ public class Zad2_4 {
     }
 
 
+//        2.4.4. Найти два наименьших (минимальных) элемента массива
+
+    public static void doubleMin() {
+
+        //       int [] arr = ArraysUtils.arrayRandomText();   //если хочешь ввести параметры массива с клавиатуры, раскомментируй эту строку, и закомментируй три следующие
+        int [] arr = ArraysUtils.arrayRandom(10,50);       //вот эту
+        System.out.println("вот наш массив:");                                //эту
+        System.out.println(Arrays.toString(arr));                             // и эту
 
 
-    public static void doubleMin() {         //        2.4.4. Найти два наименьших (минимальных) элемента массива
-        int [] arr = array();
         int min1 = arr[0];
         int min2 = arr[1];
         for (int i = 1; i < arr.length; i++) {
@@ -129,10 +134,15 @@ public class Zad2_4 {
     }
 
 
+    //        2.4.5. Сжать массив, удалив элементы, принадлежащие интервалу
+
+    public static void compressionDelete(){
+        //       int [] arr = ArraysUtils.arrayRandomText();   //если хочешь ввести параметры массива с клавиатуры, раскомментируй эту строку, и закомментируй три следующие
+        int [] arr = ArraysUtils.arrayRandom(10,50);       //вот эту
+        System.out.println("вот наш массив:");                                //эту
+        System.out.println(Arrays.toString(arr));                             // и эту
 
 
-    public static void compressionDelete(){        //        2.4.5. Сжать массив, удалив элементы, принадлежащие интервалу
-        int [] arr = array();
         Scanner in = new Scanner(System.in);
 
         System.out.println("Введите нижнюю границу интервала");
@@ -169,10 +179,13 @@ public class Zad2_4 {
     }
 
 
+    //        2.4.6. Сумма цифр массива
 
-
-    public static void sumNumber() {        //        2.4.6. Сумма цифр массива
-        int[] arr = array();
+    public static void sumNumber() {
+        //       int [] arr = ArraysUtils.arrayRandomText();   //если хочешь ввести параметры массива с клавиатуры, раскомментируй эту строку, и закомментируй три следующие
+        int [] arr = ArraysUtils.arrayRandom(10,50);       //вот эту
+        System.out.println("вот наш массив:");                                //эту
+        System.out.println(Arrays.toString(arr));                             // и эту
         int sum = 0;
         int help = 0;
 

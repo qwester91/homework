@@ -19,7 +19,7 @@ public class Zad1_1_2 {
         try {
             number = Long.parseLong(args[0]);
         } catch (Exception e) {
-            System.out.println("Аргумент программы не является числом");
+            System.out.println("Вы ввели чето не то");
             return;
         }
 
@@ -50,7 +50,7 @@ public class Zad1_1_2 {
 
 
     public static long result (Long n) {    // рекурсивная функция
-        long chislo = 1;
+        long chislo = 1L;
 
 
         if (n == 1){                    // условие выхода из рекурсии

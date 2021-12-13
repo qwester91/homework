@@ -19,7 +19,7 @@ public class Zad1_1_1 {
            number =  Long.parseLong(args[0]);
         }
         catch (Exception e) {
-            System.out.println("Аргумент программы не является числом");
+            System.out.println("Вы ввели чето не то");
             return;
         }
 

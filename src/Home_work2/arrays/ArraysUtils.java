@@ -38,4 +38,22 @@ public class ArraysUtils {
         return container;
     }
 
+    public static int[] arrayRandomText() {             // генерируем массив (сбросил сюда повторяющиеся действия актуальные для всех методов в классе)
+        Scanner in = new Scanner(System.in);
+
+
+        System.out.println("Введите желаемую длину массива");
+        int size = in.nextInt();
+
+        System.out.println("Введите максимально возможное значение элемента массива");
+        int maxValue = in.nextInt();
+
+        int[] arr = ArraysUtils.arrayRandom(size, maxValue);
+        System.out.println("Вот наш сгенерированный массив:");
+        System.out.println(Arrays.toString(arr));      // выводим наш массив в консоль (интересно же)
+
+        return arr;
+
+    }
+
 }
