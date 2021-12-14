@@ -1,6 +1,6 @@
 package Class_work;
 
-public class Sybbol {
+public class Symbol {
     public static void main(String[] args) {
         int codeSym = 33;
         if (codeSym >= 65 && codeSym <= 90){

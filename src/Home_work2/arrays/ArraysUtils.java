@@ -1,4 +1,19 @@
 package Home_work2.arrays;
+//2.1. Создать класс ArraysUtils:
+//        2.1.1. Написать метод public static int[] arrayFromConsole() рядом с main.
+//        Данный метод размер массива и каждый его элемент запрашивает у пользователя через консоль.
+//
+//        2.1.1.1. Пример int[] container = arrayFromConsole(). Результат: В методе arrayFromConsole будет запрошена
+//        информация у пользователя, пользователь вводит размер (3) и его элементы по порядку {4, 17, 32}.
+//        Соответсвенно будет создан массив размером 3 с элементами {4, 17, 32} и сохранён в переменную container.
+//
+//
+//        2.1.2. Написать метод public static int[] arrayRandom(int size, int maxValueExclusion) рядом с main.
+//        Данный метод принимает два аргумента. Первый (size) указывает размер массива который мы хотим получить.
+//        Второй (maxValueExclusion) указывает до какого числа генерировать рандомные числа.
+//
+//        2.1.2.1. Пример: int[] container = arrayRandom(5, 100). Результат: В методе arrayRandom будет создан массив
+//        размером 5 с числами от 0 до 99 (использовать класс Random) и сохранён в переменную container.
 
 import java.util.Arrays;
 import java.util.Random;
@@ -38,7 +53,7 @@ public class ArraysUtils {
         return container;
     }
 
-    public static int[] arrayRandomText() {             // генерируем массив (сбросил сюда повторяющиеся действия актуальные для всех методов в классе)
+    public static int[] arrayRandomText() {             // для ввода с клавиатуры параметров рандома
         Scanner in = new Scanner(System.in);
 
 

@@ -17,8 +17,8 @@ public class Zad2_4 {
 //        maxPositiveEvenIndex();
 //        lessThanAverage();
 //        doubleMin();
-//        compressionDelete();
-    sumNumber();
+        compressionDelete();
+//        sumNumber();
     }
 
 
@@ -170,10 +170,15 @@ public class Zad2_4 {
             arr[j] = 0;
         }
         System.out.println("Интервал удаляемых значений : [ " + a + " ; " + b + " ]");
-        System.out.println("Получившийся массив : ");
+        System.out.print("\nПолучившийся массив :\n[ ");
 
         for (int j = 0; j < arr.length; j++) {
-            System.out.print( arr[j] + "\t");
+            System.out.print( arr[j] );
+            if ( j + 1 != arr.length) {
+                System.out.print(", ");
+            } else {
+                System.out.print(" ].");
+            }
 
         }
     }

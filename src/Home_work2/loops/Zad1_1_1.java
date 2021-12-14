@@ -6,6 +6,7 @@ package Home_work2.loops;
 //          1.1.1. Используя только цикл
 
 
+import java.util.Scanner;
 
 public class Zad1_1_1 {
     public static void main(String[] args) {
@@ -13,48 +14,53 @@ public class Zad1_1_1 {
         Long number = 0L;
         String expression = "1";
 
+        Scanner num = new Scanner(args[0]);
+
+        if (num.hasNextLong())          // проверка лонг ли ввели (хз как лучше если честно)
+        {
 
 
-        try {
-           number =  Long.parseLong(args[0]);
-        }
-        catch (Exception e) {
+//        try {                          // еще вариант проверки лонг ли ввели
+//           number =  Long.parseLong(args[0]);
+//        }
+//        catch (Exception e) {
+//            System.out.println("Вы ввели чето не то");
+//            return;
+//        }
+
+
+            // переводим строку в число
+            number = num.nextLong();
+
+            System.out.println("аргумент = " + number);
+
+
+            if (number < 0) {  // проверка на отрицатльность
+                System.out.println("Вы запустили программу с отрицательным аргументом");
+                return;
+
+            } else if (number == 0) { // проверка на ноль
+                System.out.println("Вы запустили программу с аргументом равным нулю");
+                return;
+            }
+
+
+            for (int i = 2; i <= number; i++) {  // собираем строку вида 1 * 2 * 3 * ,,,,
+                expression += " * " + i;
+
+            }
+
+
+            do {                          // считаем результат перемножения
+                product *= number;
+                number--;
+            } while (number > 1);
+
+
+            System.out.println(expression + " = " + product);    // вывод результата в консоль
+        } else {
             System.out.println("Вы ввели чето не то");
-            return;
         }
-
-
-        // переводим строку в число
-            number = Long.parseLong(args[0]);
-
-        System.out.println("аргумент = " + number);
-
-
-        if (number < 0) {  // проверка на отрицатльность
-            System.out.println("Вы запустили программу с отрицательным аргументом");
-            return;
-
-        } else if (number == 0) { // проверка на ноль
-            System.out.println("Вы запустили программу с аргументом равным нулю");
-            return;
-        }
-
-
-
-        for (int i = 2; i <= number; i++) {  // собираем строку вида 1 * 2 * 3 * ,,,,
-            expression += " * " + i;
-
-        }
-
-
-         do {                          // считаем результат перемножения
-             product *= number;
-             number--;
-         } while (number > 1);
-
-
-         System.out.println(expression + " = " + product);    // вывод результата в консоль
-
 
     }
 }

@@ -1,6 +1,6 @@
 package Class_work;
 
-public class Class_work {
+public class ChetNechet {
     public static void main(String[] args) {
         int a = 13;
         int b = 15;
