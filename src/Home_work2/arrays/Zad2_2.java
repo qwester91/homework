@@ -5,6 +5,8 @@ package Home_work2.arrays;
 //        2.2.2. Вывести каждый второй элемент массива в консоль.
 //        2.2.3. Вывести все элементы массива в консоль в обратном порядке.
 
+import Home_work2.utils.ArraysUtils;
+
 public class Zad2_2 {
     public static void main(String[] args) {
         //        2.2.1. Вывести все элементы в консоль.

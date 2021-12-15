@@ -22,7 +22,7 @@ public class Zad1_3 {
            return;
        }
 
-       for (int i = 0; i < exp; i++) {
+       for (int i = 0; i < exp; i++) {       //возведение в степень
                result *= base;
 
        }

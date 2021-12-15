@@ -1,5 +1,5 @@
 package Home_work2.loops;
-
+ // 1.5. Вывести таблицу умножения в консоль.
 public class Zad1_5 {
     public static void main(String[] args) {
         for (int i = 2; i < 11; i++) {

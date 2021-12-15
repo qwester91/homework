@@ -1,4 +1,4 @@
-package Home_work2.sorts;
+package Home_work2.utils;
 //4.2. Создать класс SortsUtils. Пишем в нём следующие алгоритмы:
 //        4.2.1. Пузырьковая сортировка
 //        4.2.2. Шейкерная сортировка
@@ -10,8 +10,7 @@ package Home_work2.sorts;
 //	4.4. После тестов написать код который будет массив через ранее созданный arrayRandom. Отсортировать.
 //	4.5. После рандома написать код который будет создавать массив через ранее созданный arrayFromConsole. Отсортировать.
 
-import Home_work2.arrays.ArraysUtils;
-import Home_work2.arrays.Zad2_4;
+import Home_work2.utils.ArraysUtils;
 
 import java.util.Arrays;
 

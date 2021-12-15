@@ -48,6 +48,11 @@ public class Zad1_1_2 {
         System.out.println(expression + " = " + result(number));    // вывод результата в консоль
     }
 
+    /**
+     * result - вычисляет факториала
+     * @param n - принимает число, факториал которого необходимо вычислить
+     * @return - возвращает результат вычисления факториала
+     */
 
     public static long result (Long n) {    // рекурсивная функция
         long chislo = 1L;

@@ -8,6 +8,8 @@ package Home_work2.arrays;
 //        2.4.5. Сжать массив, удалив элементы, принадлежащие интервалу
 //        2.4.6. Сумма цифр массива
 
+import Home_work2.utils.ArraysUtils;
+
 import java.util.Arrays;
 import java.util.Scanner;
 

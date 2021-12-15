@@ -1,4 +1,4 @@
-package Home_work2.arrays;
+package Home_work2.utils;
 //2.1. Создать класс ArraysUtils:
 //        2.1.1. Написать метод public static int[] arrayFromConsole() рядом с main.
 //        Данный метод размер массива и каждый его элемент запрашивает у пользователя через консоль.

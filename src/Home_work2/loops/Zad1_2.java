@@ -40,27 +40,26 @@ public class Zad1_2 {
         System.out.println("аргумент программы = " + number );
 
 
-        for (int i = length - 1; i >= 0; i--) {
+        for (int i = length - 1; i >= 0; i--) {  //запихиваем значения каждого разряда числа в соответствующую ячейку массива
             arr[i] = number % 10;
             number /= 10;
             result *= arr[i];
         }
 
-        expression += arr[0];
+        expression += arr[0];                               // Выводим результат
 
         for (int i = 1; i < length ; i++) {
             expression += " * " + arr[i];
         }
         System.out.println(expression + " = " + result);
 
-
-
-
-
-
-
     }
 
+    /**
+     * находит количество цифр в числе
+     * @param number  - число, количество цифр которого нужно посчитать
+     * @return  - количество цифр числа
+     */
     public static int length (int number) {
         int count = (number == 0) ? 1 : 0;
         while (number != 0) {
