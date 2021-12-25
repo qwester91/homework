@@ -1,6 +1,8 @@
 package Home_work3.calcs.simple;
 
-public class CalculatorWithMathExtends extends CalculatorWithOperator {
+import Home_work3.calcs.api.ICalculator;
+
+public class CalculatorWithMathExtends extends CalculatorWithOperator implements ICalculator {
     /**
      * Возводим в степень. если основание отрицательное  -  ругается.
      * @param base основание (число которое возводим в степень)

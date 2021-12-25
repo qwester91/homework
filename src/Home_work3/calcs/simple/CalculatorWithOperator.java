@@ -1,6 +1,8 @@
 package Home_work3.calcs.simple;
 
-public class CalculatorWithOperator {
+import Home_work3.calcs.api.ICalculator;
+
+public class CalculatorWithOperator implements ICalculator {
     /**
      * находит сумму двух чисел. Оба числа double
      * @param arg1 первое слагаемое

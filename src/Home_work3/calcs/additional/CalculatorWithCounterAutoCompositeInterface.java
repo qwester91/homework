@@ -1,17 +1,39 @@
-package Home_work3.calcs.simple;
+package Home_work3.calcs.additional;
 
 import Home_work3.calcs.api.ICalculator;
+import Home_work3.calcs.simple.CalculatorWithMathCopy;
+import Home_work3.calcs.simple.CalculatorWithMathExtends;
+import Home_work3.calcs.simple.CalculatorWithOperator;
 
-public class CalculatorWithMathCopy implements ICalculator {
+public class CalculatorWithCounterAutoCompositeInterface implements ICalculator {
+    ICalculator operator;
+
+
+    public CalculatorWithCounterAutoCompositeInterface(ICalculator operator) {
+        this.operator = operator;
+    }
+
+
+    long countOperation = 0;
+
+    public void incrementCountOperation (){
+        countOperation++;
+    }
+
+    public long getCountOperation() {
+        return countOperation;
+    }
+
+
     /**
      * находит сумму двух чисел. Оба числа double
      * @param arg1 первое слагаемое
      * @param arg2 второе слагаемое
      * @return  возвращает результат сложения.
      */
-    public double add (double arg1, double arg2){
-        double result = arg1 + arg2;
-        return result;
+    public double add (double arg1, double arg2) {
+        incrementCountOperation ();
+        return operator.add(arg1, arg2);
     }
 
     /**
@@ -21,8 +43,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return  возвращает результат вычитания второго аргумента из первого.
      */
     public double deduct (double arg1, double arg2){
-        double result = arg1 - arg2;
-        return result;
+        incrementCountOperation ();
+        return operator.deduct(arg1, arg2);
     }
 
     /**
@@ -32,8 +54,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return  возвращает результат умножения.
      */
     public double multiply (double arg1, double arg2){
-        double result = arg1 * arg2;
-        return result;
+        incrementCountOperation ();
+        return operator.multiply(arg1, arg2);
     }
 
     /**
@@ -43,8 +65,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return  возвращает результат деления первого аргумента на второго.
      */
     public double divide (double arg1, double arg2){
-        double result = arg1 / arg2;
-        return result;
+        incrementCountOperation ();
+        return operator.divide(arg1, arg2);
     }
 
 
@@ -55,12 +77,9 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return  если все прошло хорошо, то возвращаем результат возведения в степень
      */
     public double exponentiation (double base, int exp){
-        double result = 0;
-        if (base < 0) {
-            System.out.println("так  это не работает, возводим в степень только положительные числа!!");
-            return result;
-        }
-       return  Math.pow(base, exp);
+
+        incrementCountOperation();
+        return operator.exponentiation(base, exp);
     }
 
     /**
@@ -69,9 +88,8 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return возвращает модуль числа
      */
     public double modul (double x){
-
-            return Math.abs(x);
-
+        incrementCountOperation();
+        return operator.modul(x);
     }
 
     /**
@@ -80,9 +98,7 @@ public class CalculatorWithMathCopy implements ICalculator {
      * @return результат извлечения корня
      */
     public double sqrt(double q){
-        return Math.sqrt(q);
+        incrementCountOperation();
+        return operator.sqrt(q);
     }
-
-
 }
-
