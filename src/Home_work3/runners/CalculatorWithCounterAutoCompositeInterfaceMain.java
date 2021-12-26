@@ -1,5 +1,6 @@
 package Home_work3.runners;
 
+import Home_work2.utils.SortsUtils;
 import Home_work3.calcs.additional.CalculatorWithCounterAutoComposite;
 import Home_work3.calcs.additional.CalculatorWithCounterAutoCompositeInterface;
 import Home_work3.calcs.api.ICalculator;
@@ -21,19 +22,15 @@ public class CalculatorWithCounterAutoCompositeInterfaceMain {
 
 
 
-        System.out.println("работаем с обьектом типа CalculatorWithOperator");
-        System.out.println("результат вычислений: " + result(calculator1));
-        System.out.println("Количество использований калькулятора: " + calculator1.getCountOperation());
+        print(result(calculator1),"CalculatorWithOperator" , calculator1.getCountOperation() );
         System.out.println();
 
-        System.out.println("работаем с обьектом типа CalculatorWithMathCopy");
-        System.out.println("результат вычислений: " + result(calculator2));
-        System.out.println("Количество использований калькулятора: " + calculator2.getCountOperation());
+        print(result(calculator2),"CalculatorWithMathCopy",calculator2.getCountOperation() );
         System.out.println();
 
-        System.out.println("работаем с обьектом типа CalculatorWithMathExtends");
-        System.out.println("результат вычислений: " + result(calculator3));
-        System.out.println("Количество использований калькулятора: " + calculator3.getCountOperation());
+        print(result(calculator3),"CalculatorWithMathExtends",calculator3.getCountOperation() );
+
+
     }
 
     public static double result(ICalculator calculator){
@@ -48,5 +45,12 @@ public class CalculatorWithCounterAutoCompositeInterfaceMain {
         result_c = calculator.multiply(15,7);
         result_d = calculator.add(result_b,result_c);
       return  result = calculator.add(4.1,result_d);
+    }
+
+    public static void print(double result, String nameOfCalc, long getCount ){
+        System.out.println("работаем с обьектом типа " + nameOfCalc);
+        System.out.println("результат вычислений: " + result);
+        System.out.println("Количество использований калькулятора: " + getCount);
+
     }
 }
