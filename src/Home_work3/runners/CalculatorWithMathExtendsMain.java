@@ -1,4 +1,7 @@
 package Home_work3.runners;
+//4.4 Создать класс CalculatorWithMathExtendsMain в котором будет точка входа (main метод). В main методе требуется
+// создать экземпляр калькулятора и используя методы из данного экземпляра посчитать выражения из задания 1.
+// Вывести в консоль результат.
 import Home_work3.calcs.simple.CalculatorWithMathExtends;
 
 public class CalculatorWithMathExtendsMain {

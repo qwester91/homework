@@ -1,39 +1,28 @@
 package Home_work3.calcs.simple;
+//4. Создать класс CalculatorWithMathExtends.
+//	4.1 Все методы объявленные в данном классе НЕ статические (не имеют модификатор static).
+//	4.2 Данный класс должен наследовать класс CalculatorWithOperator.
+//	4.3 Условия:
+//		4.3.1 4 базовых математических метода (деление, умножение, вычитание, сложение) НЕ ДОЛЖНЫ быть объявлены
+//		напрямую в классе, а должны быть унаследованы от родительского класса (4.2).
+//		4.3.2 3 метода (Возведение в целую степень дробного положительного числа, Модуль числа, Корень из числа).
+//		Данные методы должны ПЕРЕОПРЕДЕЛЯТЬ методы родительского класса (4.2) и должны содержать в своём теле вызов
+//		библиотеки Math и возврат полученного результата .
 
+//	8.2 На данный момент данный интерфейс вы должны прописать во всех классах калькуляторов созданных нами в пакетах
+//	calcs.simple
 import Home_work3.calcs.api.ICalculator;
 
 public class CalculatorWithMathExtends extends CalculatorWithOperator implements ICalculator {
     /**
-     * Возводим в степень. если основание отрицательное  -  ругается.
+     * Возводим в степень.
      * @param base основание (число которое возводим в степень)
      * @param exp степень (в которую возводим число)
      * @return  если все прошло хорошо, то возвращаем результат возведения в степень
      */
     public double exponentiation (double base, int exp){
-        double result = 1;
-        if (base < 0) {
-            System.out.println("так  это не работает, возводим в степень только положительные числа!!");
-            return result = 0;
-        }
 
-        if (exp == 0) {
-            result = 1;
-            return result;
-        } else if (exp > 0) {
-            for (int i = 0; i < exp; i++) {
-                result *= base;
-            }
-            return result;
-
-        }else if (exp < 0) {
-            exp = -exp  ;
-            for (int i = 0; i < exp; i++) {
-                result *= base;
-            }
-            return (1/result);
-        }
-        return result = 0;
-
+            return Math.pow(base,exp);
     }
 
     /**
@@ -42,12 +31,7 @@ public class CalculatorWithMathExtends extends CalculatorWithOperator implements
      * @return возвращает модуль числа
      */
     public double modul (double x){
-        if (x < 0){
-            x = -x;
-            return x;
-        }else {
-            return x;
-        }
+       return Math.abs(x);
     }
 
     /**

@@ -1,4 +1,7 @@
 package Home_work3.runners;
+//6.5 Создать класс CalculatorWithCounterAutoSuperMain в котором будет точка входа (main метод). В main методе
+// требуется создать экземпляр калькулятора и используя методы из данного экземпляра посчитать выражения из задания 1.
+// Вывести в консоль результаты посчитанных выражений и результат метода getCountOperation().
 import Home_work3.calcs.additional.CalculatorWithCounterAutoSuper;
 
 

@@ -1,4 +1,8 @@
 package Home_work3.runners;
+//5.5 Создать класс CalculatorWithCounterClassicMain в котором будет точка входа (main метод).
+// В main методе требуется создать экземпляр калькулятора и используя методы из данного экземпляра посчитать выражения
+// из задания 1, при каждой математической операции самостоятельно вызывать метод incrementCountOperation()
+// для увеличения счётчика. Вывести в консоль результат.
 import Home_work3.calcs.additional.CalculatorWithCounterClassic;
 
 public class CalculatorWithCounterClassicMain {

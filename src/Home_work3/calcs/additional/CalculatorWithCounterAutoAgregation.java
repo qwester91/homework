@@ -23,24 +23,48 @@ package Home_work3.calcs.additional;
 //	посчитать выражения из задания 1. Вывести в консоль результаты посчитанных выражений и результат метода
 //	getCountOperation().
 
-
+import Home_work3.calcs.simple.CalculatorWithMathCopy;
 import Home_work3.calcs.simple.CalculatorWithMathExtends;
+import Home_work3.calcs.simple.CalculatorWithOperator;
 
-
-public class CalculatorWithCounterAutoComposite {
-
-    CalculatorWithMathExtends operator;   // поле определяющее каким классом считаем математику
-    long countOperation = 0;
-
-    /*
-    конструктор по умолчанию, создает новый обьект калькулятора на основе CalculatorWithMathExtends
-     */
-    public CalculatorWithCounterAutoComposite() {
-         this.operator = new CalculatorWithMathExtends();
-    }
+public class CalculatorWithCounterAutoAgregation {
+    CalculatorWithOperator operator;            // поле типа CalculatorWithOperator
+    CalculatorWithMathCopy operator1;            // поле типа  CalculatorWithMathCopy
+    CalculatorWithMathExtends operator2;            // поле типа CalculatorWithMathExtends
+    long countOperation = 0;                // счетчик вызова методов калькулятора
 
     /**
-     * метод увеличивающий счетчик использования методов калькулятора
+     * конструктор CalculatorWithCounterAutoAgregation
+     * @param operator - обьект типа CalculatorWithOperator
+     *                 присваивает его в поле operator
+     */
+    public CalculatorWithCounterAutoAgregation (CalculatorWithOperator operator) {
+        this.operator = operator;
+    }
+
+
+    /**
+     * конструктор CalculatorWithCounterAutoAgregation
+     * @param operator - обьект типа CalculatorWithMathCopy
+     *                 присваивает его в поле operator1
+     */
+    public CalculatorWithCounterAutoAgregation (CalculatorWithMathCopy operator) {
+        this.operator1 = operator;
+    }
+
+
+    /**
+     * конструктор CalculatorWithCounterAutoAgregation
+     * @param operator - обьект типа CalculatorWithMathExtends
+     *                 присваивает его в поле operator2
+     */
+    public CalculatorWithCounterAutoAgregation (CalculatorWithMathExtends operator) {
+        this.operator2 = operator;
+    }
+
+
+    /**
+     * метод увличивает счетчик countOperation
      */
     public void incrementCountOperation (){
         countOperation++;
@@ -55,7 +79,6 @@ public class CalculatorWithCounterAutoComposite {
     }
 
 
-
     /**
      * находит сумму двух чисел. Оба числа double
      * увеличивает счетчик использования калькулятора на 1
@@ -63,9 +86,17 @@ public class CalculatorWithCounterAutoComposite {
      * @param arg2 второе слагаемое
      * @return  возвращает результат сложения.
      */
-    public double add (double arg1, double arg2) {
+    public double add (double arg1,double arg2 ) {
         incrementCountOperation ();
-        return operator.add(arg1, arg2);
+        if (operator!= null) {
+            return operator.add(arg1, arg2);
+        }else if (operator1!= null) {
+            return operator1.add(arg1, arg2);
+        }else if (operator2!= null) {
+            return operator2.add(arg1, arg2);
+        }else {
+        return 0;
+        }
     }
 
     /**
@@ -77,7 +108,15 @@ public class CalculatorWithCounterAutoComposite {
      */
     public double deduct (double arg1, double arg2){
         incrementCountOperation ();
-        return operator.deduct(arg1, arg2);
+        if (operator!= null) {
+            return operator.deduct(arg1, arg2);
+        }else if (operator1!= null) {
+            return operator1.deduct(arg1, arg2);
+        }else if (operator2!= null) {
+            return operator2.deduct(arg1, arg2);
+        }else {
+            return 0;
+        }
     }
 
     /**
@@ -89,7 +128,15 @@ public class CalculatorWithCounterAutoComposite {
      */
     public double multiply (double arg1, double arg2){
         incrementCountOperation ();
-        return operator.multiply(arg1, arg2);
+        if (operator!= null) {
+            return operator.multiply(arg1, arg2);
+        }else if (operator1!= null) {
+            return operator1.multiply(arg1, arg2);
+        }else if (operator2!= null) {
+            return operator2.multiply(arg1, arg2);
+        }else {
+            return 0;
+        }
     }
 
     /**
@@ -101,7 +148,15 @@ public class CalculatorWithCounterAutoComposite {
      */
     public double divide (double arg1, double arg2){
         incrementCountOperation ();
-        return operator.divide(arg1, arg2);
+        if (operator!= null) {
+            return operator.divide(arg1, arg2);
+        }else if (operator1!= null) {
+            return operator1.divide(arg1, arg2);
+        }else if (operator2!= null) {
+            return operator2.divide(arg1, arg2);
+        }else {
+            return 0;
+        }
     }
 
 
@@ -113,9 +168,16 @@ public class CalculatorWithCounterAutoComposite {
      * @return  если все прошло хорошо, то возвращаем результат возведения в степень
      */
     public double exponentiation (double base, int exp){
-
-        incrementCountOperation();
-        return operator.exponentiation(base, exp);
+        incrementCountOperation ();
+        if (operator!= null) {
+            return operator.exponentiation(base, exp);
+        }else if (operator1!= null) {
+            return operator1.exponentiation(base, exp);
+        }else if (operator2!= null) {
+            return operator2.exponentiation(base, exp);
+        }else {
+            return 0;
+        }
     }
 
     /**
@@ -126,7 +188,15 @@ public class CalculatorWithCounterAutoComposite {
      */
     public double modul (double x){
         incrementCountOperation();
-        return operator.modul(x);
+        if (operator!= null) {
+            return operator.modul(x);
+        }else if (operator1!= null) {
+            return operator1.modul(x);
+        }else if (operator2!= null) {
+            return operator2.modul(x);
+        }else {
+            return 0;
+        }
     }
 
     /**
@@ -137,6 +207,14 @@ public class CalculatorWithCounterAutoComposite {
      */
     public double sqrt(double q){
         incrementCountOperation();
-        return operator.sqrt(q);
+        if (operator!= null) {
+            return operator.sqrt(q);
+        }else if (operator1!= null) {
+            return operator1.sqrt(q);
+        }else if (operator2!= null) {
+            return operator2.sqrt(q);
+        }else {
+            return 0;
+        }
     }
 }
