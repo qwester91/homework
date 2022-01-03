@@ -11,8 +11,8 @@ import Collections.dto.Student;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sort1 {
-    public void Sort1(List<Student> list){
+public class Filter {
+    public List<Student> Sort1(List<Student> list){
         int size = list.size();
         List<Student> listSorted1 = new ArrayList<>();
         int allAge = 0;
@@ -23,6 +23,8 @@ public class Sort1 {
                 System.out.println(student);
             }
         }
+        System.out.println("количество отфильтрованных студентов: " + listSorted1.size());
         System.out.println("Средний возраст отфильтрованных студентов: " + allAge / listSorted1.size());
+        return listSorted1;
     }
 }

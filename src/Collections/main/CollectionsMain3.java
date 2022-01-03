@@ -17,7 +17,7 @@ import Collections.servise.comparators.NameComparator;
 import java.util.Comparator;
 import java.util.List;
 
-public class CollectionsMain1 {
+public class CollectionsMain3 {
     public static void main(String[] args) {
        Collections1 collection = new Collections1();
        List<Student> list =  collection.run();
@@ -31,13 +31,7 @@ public class CollectionsMain1 {
         serv.run(listSort, comparator);
 
 
-        Comparator<Student> comparator1 = new GradeComparator();
-        CollectionComparator serv1 = new CollectionComparator();
-        serv1.run(listSort, comparator1);
 
-        Comparator<Student> comparator2 = new AgeGradeComparator();
-        CollectionComparator serv2 = new CollectionComparator();
-        serv2.run(listSort, comparator2);
 
     }
 }
