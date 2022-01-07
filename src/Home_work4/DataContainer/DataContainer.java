@@ -8,10 +8,13 @@ package Home_work4.DataContainer;
 //3. Из-за особенностей дженериков в данном классе обязательно будет присутствовать один конструктор DataContainer(T[]).
 // Есть и другие способы, но в рамках обучения они будут сложными и с ними мы разбираться будем слишком сложно.
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class DataContainer <T>{
+public class DataContainer <T> implements Iterable <T>{
     private  T[] data;
 
     public DataContainer(T[] data){
@@ -178,7 +181,113 @@ public class DataContainer <T>{
     }
 
 
+    /**
+     * 11.* В даном классе должен быть СТАТИЧЕСКИЙ метод sort который будет принимать объект DataContainer с дженериком
+     *  extends Comparable. Данный метод будет сортировать элементы в ПЕРЕДАННОМ объекте DataContainer используя реализацию
+     *  сравнения вызываемый у хранимых объектов. Для этого надо сделать дженерик метод.
+     * @param container обьект класса DataContainer, наследующий интерфейс Comparable
+     */
+    public  static void sort(DataContainer<? extends Comparable > container){
 
+        int stop = 0;
+        int length = container.getItems().length;
+        for (int i = 0; i < length-1; i++) {
+            stop = 0;
+            for (int j = 0; j <length-1-i; j++) {
+                if (container.data[j].compareTo(container.data[j + 1]) > 0){
+                    container.helpComparable(container.getItems(), j);
+                    stop = 1;
+                }
+            }
+            if (stop == 0) {
+                break;
+            }
+        }
+    }
+
+    /**
+     * помогатор для метода sort, меняет местами элементы переданного массива (элемент с переданным индексом меняется местами
+     * со следующим за ним элементом)
+     * @param data переданный массив
+     * @param j индекс элемента для замены
+     * @param <T> дженерик типа обьекта в массиве
+     */
+    public <T extends Comparable> void helpComparable(T[]data, int j){
+        T help;
+        help = data[j];
+        data[j] = data[j+1];
+        data[j+1] = help;
+    }
+
+
+
+
+    /**
+     * 12.* В данном классе должен быть СТАТИЧЕСКИЙ метод void sort(DataContainer<.............> container, Comparator<.......> comparator)
+     * который будет принимать объект DataContainer и реализацию интерфейса Comparator. Данный метод будет сортировать элементы в ПЕРЕДАННОМ
+     * объекте DataContainer используя реализацию сравнения из ПЕРЕДАННОГО объекта интерфейса Comparator.
+     * @param container объект DataContainer
+     * @param comparator объекта интерфейса Comparator
+     * @param <T> дженерик типа данных датаконтейнера
+     * @param <C> дженерик типа данных компаратора
+     */
+    public  static <T extends DataContainer,C extends Comparator> void sort(T container, C comparator){
+        T help;
+        int stop = 0;
+        int length = container.getItems().length;
+        for (int i = 0; i < length-1; i++) {
+            stop = 0;
+            for (int j = 0; j < length-1-i; j++) {
+                if (comparator.compare(container.get(j), container.get(j + 1)) > 0){
+                   container.help(container.getItems(), j);
+                    stop = 1;
+                }
+            }
+            if (stop == 0) {
+                break;
+            }
+        }
+    }
+
+    /**
+     * помогатор для метода sort, меняет местами элементы переданного массива (элемент с переданным индексом меняется местами
+     * со следующим за ним элементом)
+     * @param data переданный массив
+     * @param j индекс элемента массива, который нужно поменять местами со следующим элементом
+     */
+    public void help(T[]data, int j){
+        T help;
+        help = data[j];
+        data[j] = data[j+1];
+        data[j+1] = help;
+    }
+
+//13.** Реализовать в DataContainer интерфейс Iterable
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator() {
+            private int index = 0;
+
+
+
+
+            @Override
+            public boolean hasNext() {
+                return index < data.length;
+            }
+
+
+
+            @Override
+            public T next() throws NoSuchElementException {
+                try{return data[index++];}
+                catch (NoSuchElementException e){
+                    System.out.println("NoSuchElementException");
+                }
+
+                return data[index++];
+            }
+        };
+    }
 }
-
 
