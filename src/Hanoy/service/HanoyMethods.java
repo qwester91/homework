@@ -85,13 +85,17 @@ public class HanoyMethods {
 
     public boolean move(int from, int to){
         int[][] arr = playingField;
+        int e = 0;
+        int k = 0;
 
        boolean isMove = false;
        int ringDiam = 0;
         for (int i = 0; i < countRings; i++) {
             if(arr[from-1][i] != 0){
                 ringDiam = arr[from-1][i];
-                arr[from-1][i] = 0;
+                e = from-1;
+                k = i;
+               // arr[from-1][i] = 0;
                 break;
             }
         }
@@ -111,6 +115,7 @@ public class HanoyMethods {
         }
         if (isMove){
             countMoves++;
+            arr[e][k] = 0;
             this.playingField = arr;
         }
 

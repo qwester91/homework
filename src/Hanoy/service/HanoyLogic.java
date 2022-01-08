@@ -36,24 +36,28 @@ public class HanoyLogic {
         int to;
         boolean isMove;
         hanoy.getStartPlayingField();
+        do {
 
 
-            do{
+            do {
                 hanoy.print();
-            System.out.println("с какой башенки снять колечко?");
-            from = scan.nextInt();
-            System.out.println("на какую башенку положить колечко?");
-            to = scan.nextInt();
-            if (!(from > 0 && from < 4 && to > 0 && to < 4)){
-                System.out.println("Нету таких башенок! еще раз пробуй! ");
-            }
-           isMove= hanoy.move(from, to);
-            if (!isMove){
-                System.out.println("этот ход недопустим! Еще раз!");
-            }
-            }
-            while (from > 0 && from < 4 && to > 0 && to < 4 && isMove && !hanoy.isWin());
+                System.out.println("с какой башенки снять колечко?");
+                from = scan.nextInt();
+                System.out.println("на какую башенку положить колечко?");
+                to = scan.nextInt();
+                if (!(from > 0 && from < 4 && to > 0 && to < 4)) {
+                    System.out.println("Нету таких башенок! еще раз пробуй! ");
+                    break;
+                }
+                isMove = hanoy.move(from, to);
+                if (!isMove) {
+                    System.out.println("этот ход недопустим! Еще раз!");
+                    break;
 
+                }
+            }
+            while (!hanoy.isWin());
+        }  while (!hanoy.isWin());
 
        hanoy.print();
         System.out.println("Поздравляю! Ты выйграл всего за " + hanoy.getCountMoves()+ " ходов!");
