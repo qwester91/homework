@@ -160,6 +160,8 @@ public class DataContainer <T> implements Iterable <T>{
     }
 
     //10. Переопределить метод toString() в классе и выводить содержимое data без ячеек в которых хранится null.
+    //я подумал что тут можно же использовать мтод delete(int index), первый вариант закомментирую
+    // в этом методе мы создаем новый массив, в котором удаляем null, и его печатаем. исходный массив остается неизменным
 
 
     @Override
@@ -168,9 +170,10 @@ public class DataContainer <T> implements Iterable <T>{
 
         for (int i = 0; i < newDataWithoutNull.length; i++) {
             if (newDataWithoutNull[i] == null) {
-                for (int j = i; j < newDataWithoutNull.length - 1; j++) {
-                    newDataWithoutNull[j] = newDataWithoutNull[j + 1];
-                }
+                delete(i);
+//                for (int j = i; j < newDataWithoutNull.length - 1; j++) {
+//                    newDataWithoutNull[j] = newDataWithoutNull[j + 1];
+//                }
                 newDataWithoutNull = Arrays.copyOf(newDataWithoutNull, newDataWithoutNull.length - 1);
                 i--;
             }
@@ -263,6 +266,7 @@ public class DataContainer <T> implements Iterable <T>{
     }
 
 //13.** Реализовать в DataContainer интерфейс Iterable
+    // вроде бы то что под аннотацией(переопределяемые методы) не докумментируются
     @Override
     public Iterator<T> iterator() {
         return new Iterator() {
