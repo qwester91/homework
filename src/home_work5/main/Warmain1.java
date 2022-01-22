@@ -7,6 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Warmain1 {
     public static void main(String[] args) {
@@ -17,15 +19,22 @@ public class Warmain1 {
         }catch (IOException e){
             System.out.println("Какая-то ошибка");
         }
-        System.out.println(warAndPiece);
+       // System.out.println(warAndPiece);
 
-       String[] arrWarAndPiece =  warAndPiece.split("[^А-яЁё]+");
+        Pattern p = Pattern.compile("\\w*[А-яЁё]*-?\\w*[А-яЁё]*");
+        Matcher m = p.matcher(warAndPiece);
         Set <String> setWarAndPiece = new HashSet<>();
-        for (String s : arrWarAndPiece) {
-            setWarAndPiece.add(s);
-        }
+        int countFindWords = 0;
+
+        while (m.find()){
+            countFindWords++;
+            setWarAndPiece.add(m.group());}
+
+
+        System.out.println("Список уникальных слов" + setWarAndPiece.toString());
         System.out.println("Использовано уникальных слов - " + setWarAndPiece.size());
-        System.out.println(arrWarAndPiece.length);
+        System.out.println("Всего нашлось слов - " + countFindWords);
+
 
     }
 }
