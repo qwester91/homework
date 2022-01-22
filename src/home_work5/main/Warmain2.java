@@ -1,4 +1,4 @@
-package home_work5;
+package home_work5.main;
 
 import java.io.IOException;
 import java.nio.file.Files;

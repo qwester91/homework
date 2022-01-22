@@ -1,4 +1,4 @@
-package home_work5;
+package home_work5.main;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -21,7 +21,7 @@ public class Warmain1 {
         }
        // System.out.println(warAndPiece);
 
-        Pattern p = Pattern.compile("\\w*[А-яЁё]*-?\\w*[А-яЁё]*");
+        Pattern p = Pattern.compile("[0-9a-zA-ZА-яЁё]+-?[0-9a-zA-ZА-яЁё]*");
         Matcher m = p.matcher(warAndPiece);
         Set <String> setWarAndPiece = new HashSet<>();
         int countFindWords = 0;
