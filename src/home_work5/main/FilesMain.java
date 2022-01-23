@@ -22,13 +22,18 @@ public class FilesMain {
             System.out.println(file.getName());
         }
         File creator = new File(folderPath+"\\result.txt");
-        if (!creator.exists()){
-            try {
-                creator.createNewFile();
-            } catch (IOException e) {
-                System.out.println("не удалось создать файл result");
-            }
+
+
+        if (creator.exists()) {
+            creator.delete();
         }
+        try {
+            creator.createNewFile();
+        } catch (IOException e) {
+            System.out.println("не удалось создать файл result");
+        }
+
+
         boolean work = true;
         String nameFile = null;
         while(work){
@@ -67,9 +72,8 @@ public class FilesMain {
                 writer.append(textLog + "\nИмя файла - ["+nameFile + "], слово для поиска - [" + wordToSearch + "], количество найденных слов - " + count);
                 writer.close();
             } catch (IOException e) {
-                System.out.println("АШИПКА!!!");
+                System.out.println("АШИПКА ЛОГИРОВАНИЯ!!!");
             }
         }
-
     }
 }

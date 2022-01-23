@@ -16,6 +16,12 @@ public class RegExSearch implements ISearchEngine {
         this.isCaseInsensitive = isCaseInsensitive;
     }
 
+    /**
+     * ищет слово в переданном тексте, В меру своих сил пытается искать именно слова, а не их куски
+     * @param text строка, в котором ищем
+     * @param word строка, которую ищем
+     * @return количество совпадений в тексте (Long)
+     */
     @Override
     public long search(String text, String word) {
         Long count = 0L;

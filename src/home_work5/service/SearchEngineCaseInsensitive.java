@@ -17,6 +17,7 @@ public class SearchEngineCaseInsensitive implements ISearchEngine {
 
         if (engine instanceof EasySearch){
             text.toLowerCase();
+            word.toLowerCase();
             return engine.search(text, word);
         } else {
             RegExSearch search = new RegExSearch(true);
