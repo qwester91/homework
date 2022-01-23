@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class FilesMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("введите адрес папки с книжками пожалуйста");
+        System.out.println("введите адрес папки с книжками, пожалуйста");
         String folderPath = scanner.nextLine();
         File reader = new File(folderPath);
 
@@ -21,7 +21,7 @@ public class FilesMain {
         for (File file : listfiles) {
             System.out.println(file.getName());
         }
-        File creator = new File(reader.getName()+"\\result.txt");
+        File creator = new File(folderPath+"\\result.txt");
         if (!creator.exists()){
             try {
                 creator.createNewFile();
@@ -29,36 +29,47 @@ public class FilesMain {
                 System.out.println("не удалось создать файл result");
             }
         }
+        boolean work = true;
+        String nameFile = null;
+        while(work){
+            System.out.println("Введите название файла, в котором вы хотите что-то искать, если хотите выйти - введите 1 ");
+            nameFile = scanner.nextLine();
+            String wordToSearch;
+            Long count;
+            SearchEngineCaseInsensitive search = new SearchEngineCaseInsensitive(
+                    new RegExSearch()
+            );
+            if (nameFile.equals("1")){
+                return;
+            }
 
+            String text = null;
+            try {
+                Path pathToFile = Path.of(folderPath + "\\" + nameFile);
+                text = Files.readString(pathToFile);
+            } catch (IOException e) {
+                System.out.println("Ошибка чтения файла");
+                continue;
+            }
 
-        System.out.println("Введите название файла, в котором вы хотите что-то искать");
-        String nameFile = scanner.nextLine();
-        String wordToSearch;
-        Long count;
-        SearchEngineCaseInsensitive search = new SearchEngineCaseInsensitive(
-                new RegExSearch()
-        );
+            System.out.println("Введите слово для поиска");
+            wordToSearch = scanner.nextLine();
 
-        String text = null;
-        try {
-            Path pathToFile = Path.of(folderPath + "\\" + nameFile);
-            text = Files.readString(pathToFile);
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Ошибка чтения файла");
+            count = search.search(text, wordToSearch);
+            FileWriter writer;
+            String textLog;
+
+            try {
+                Path pathToFileLog = Path.of(folderPath + "\\result.txt");
+                textLog = Files.readString(pathToFileLog);
+
+                writer = new FileWriter(folderPath + "\\result.txt");
+                writer.append(textLog + "\nИмя файла - ["+nameFile + "], слово для поиска - [" + wordToSearch + "], количество найденных слов - " + count);
+                writer.close();
+            } catch (IOException e) {
+                System.out.println("АШИПКА!!!");
+            }
         }
-
-        System.out.println("Введите слово для поиска");
-        wordToSearch = scanner.nextLine();
-
-        count = search.search(text, wordToSearch);
-        FileWriter writer;
-        try {
-             writer = new FileWriter(creator.getName());
-            writer.write("Имя файла - "+nameFile + ", слово для поиска -  " + wordToSearch + ", количество найденных слов - " + count);
-        } catch (IOException e) {
-            System.out.println("АШИПКА!!!");
-        }
-
 
     }
 }
