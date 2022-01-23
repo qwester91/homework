@@ -9,10 +9,7 @@ import java.nio.file.Path;
 
 public class RegExSearchMain {
     public static void main(String[] args) {
-        String str = "012345678901234567890123456789012012012";
-        RegExSearch search = new RegExSearch();
-        Long count = search.search(str, "012");
-        System.out.println(count);
+
 
         String warAndPiece = null;
         try {
@@ -21,7 +18,7 @@ public class RegExSearchMain {
         }catch (IOException e){
             System.out.println("Какая-то ошибка");
         }
-        RegExSearch search1 = new RegExSearch();
+        RegExSearch search1 = new RegExSearch(true);
         Long count1 =search1.search(warAndPiece, "война");
         Long count2 =search1.search(warAndPiece, "и");
         Long count3 =search1.search(warAndPiece, "мир");

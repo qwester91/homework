@@ -8,10 +8,6 @@ import java.nio.file.Path;
 
 public class EasySearchMain {
     public static void main(String[] args) {
-        String str = "012345678901234567890123456789012012012";
-        EasySearch search = new EasySearch();
-        Long count = search.search(str, "012");
-        System.out.println(count);
 
         String warAndPiece = null;
         try {
