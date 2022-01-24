@@ -4,25 +4,33 @@ import home_work5.service.api.ISearchEngine;
 
 public class EasySearch implements ISearchEngine {
     /**
-     * метод ищет точное совпадение переданного слова с последовательностью символов в тексте,
-     * это может быть как отдельное слово, так и часть его.
+     * Метод ищет слова в тексте
      * @param text строка, в которой будем искать
      * @param word строка, которую будем искать
      * @return возвращает количество найденных совпадений (Long)
      */
     @Override
     public long search(String text, String word) {
-        boolean existWord = true;
+
+        char[] arr = new char[]{' ',',','.','!','"','?',':',';','(',')','\\','\n','\r','\t','\f'};
         Long count = 0L;
         int index = 0;
-        while (existWord){
-            existWord = false;
+        while (text.indexOf(word, index)>=0){
             if (text.indexOf(word, index) >= index) {
-                index = text.indexOf(word, index)+1;
-                existWord = true;
-                count++;
-            }
+                for (char c : arr) {
+                    if ((text.indexOf(word, index) == 0) || (text.charAt(text.indexOf(word, index) - 1) == c)) {
+                        for (char c1 : arr) {
+                            if((((text.indexOf(word,index)+ word.length())) == text.length())||(text.charAt(text.indexOf(word,index)+ word.length())) == c1){
+                                count++;
+                                break;
 
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+            index = text.indexOf(word, index)+word.length();
         }
         return count;
     }

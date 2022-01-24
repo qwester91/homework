@@ -14,11 +14,13 @@ public class SearchEngineCaseInsensitive implements ISearchEngine {
 
     @Override
     public long search(String text, String word) {
+        String newText;
+        String newWord;
 
         if (engine instanceof EasySearch){
-            text.toLowerCase();
-            word.toLowerCase();
-            return engine.search(text, word);
+           newText =  text.toLowerCase();
+            newWord = word.toLowerCase();
+            return engine.search(newText,newWord);
         } else {
             RegExSearch search = new RegExSearch(true);
             return search.search(text,word);

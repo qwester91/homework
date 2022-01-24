@@ -14,15 +14,16 @@ public class SearchEnginePunctuationNormalizer implements ISearchEngine {
 
     @Override
     public long search(String text, String word) {
-        punctuationNormalizer(text);
-        return engine.search(text, word);
+        String newText = punctuationNormalizer(text);
+        return engine.search(newText, word);
     }
 
 
-    private void punctuationNormalizer (String text){
-        Pattern p = Pattern.compile("\\p{Punct}*|\\s+");
+    private String punctuationNormalizer (String text){
+        Pattern p = Pattern.compile("\\p{Punct}+|\\s+");
         Matcher m = p.matcher(text);
-        m.replaceAll(" ");
+        String newText  = m.replaceAll(" ");
+        return newText;
 
     }
 }
