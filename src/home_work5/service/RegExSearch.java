@@ -29,7 +29,7 @@ public class RegExSearch implements ISearchEngine {
         if (isCaseInsensitive) {
              p = Pattern.compile("(\\p{Punct}+|\\s+|\\A+)" + (word) + "(\\p{Punct}*|\\s*)",Pattern.CASE_INSENSITIVE|Pattern.UNICODE_CASE);
         } else {
-             p = Pattern.compile("(\\p{Punct}+|\\s+|\\A+)" + (word) + "(\\z|\\Z|\\p{Punct}+|\\s+)");
+             p = Pattern.compile("(\\p{Punct}+|\\s+|\\A+)" + (word) + "(\\p{Punct}+|\\s+)");
         }
         Matcher matcher = p.matcher(text);
        while (matcher.find()){
