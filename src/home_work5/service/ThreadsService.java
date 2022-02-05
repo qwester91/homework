@@ -22,8 +22,14 @@ public class ThreadsService {
         String folderPath = scanner.nextLine();
         File reader = new File(folderPath);
 
+        File[] listAllfiles = reader.listFiles();
+        List<File> listfiles = new ArrayList<>();
 
-        File[] listfiles = reader.listFiles();
+        for (File file : listAllfiles) {
+            if (file.getName().endsWith(".txt")){
+                listfiles.add(file);
+            }
+        }
 
         File creator = new File(folderPath + "\\result.txt");
 
@@ -45,18 +51,20 @@ public class ThreadsService {
         List<Future<String>> futures = new ArrayList<>();
         SearchEngineCaseInsensitive search = new SearchEngineCaseInsensitive(
                 new RegExSearch());
+
+        try {
+            writer = new FileWriter(folderPath + "\\result.txt");
+        } catch (IOException e) {
+            System.out.println("Ошибка с логом, прастити");
+            return;
+        }
         while (work) {
             System.out.println("Введите слово для поиска, если хотите выйти - нажмите Enter");
             wordToSearch = scanner.nextLine();
             if (wordToSearch.equals("")) {
                 break;
             }
-            try {
-                writer = new FileWriter(folderPath + "\\result.txt");
-            } catch (IOException e) {
-                System.out.println("Ошибка с логом, прастити");
-                return;
-            }
+
             for (File listfile : listfiles) {
 
 
