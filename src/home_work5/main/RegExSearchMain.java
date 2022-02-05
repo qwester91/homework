@@ -2,6 +2,7 @@ package home_work5.main;
 
 import home_work5.service.EasySearch;
 import home_work5.service.RegExSearch;
+import home_work5.service.api.ISearchEngine;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,7 +19,7 @@ public class RegExSearchMain {
         }catch (IOException e){
             System.out.println("Какая-то ошибка");
         }
-        RegExSearch search1 = new RegExSearch(true);
+        ISearchEngine search1 = new RegExSearch(true);
         Long count1 =search1.search(warAndPiece, "война");
         Long count2 =search1.search(warAndPiece, "и");
         Long count3 =search1.search(warAndPiece, "мир");

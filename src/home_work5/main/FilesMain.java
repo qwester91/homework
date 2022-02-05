@@ -70,6 +70,7 @@ public class FilesMain {
 
                 writer = new FileWriter(folderPath + "\\result.txt");
                 writer.append(textLog + "\nИмя файла - ["+nameFile + "], слово для поиска - [" + wordToSearch + "], количество найденных слов - " + count);
+                writer.flush();
                 writer.close();
             } catch (IOException e) {
                 System.out.println("АШИПКА ЛОГИРОВАНИЯ!!!");

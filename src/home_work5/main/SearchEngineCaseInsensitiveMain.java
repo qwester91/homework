@@ -4,6 +4,7 @@ import home_work5.service.EasySearch;
 import home_work5.service.RegExSearch;
 import home_work5.service.SearchEngineCaseInsensitive;
 import home_work5.service.SearchEnginePunctuationNormalizer;
+import home_work5.service.api.ISearchEngine;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,7 +20,7 @@ public class SearchEngineCaseInsensitiveMain {
         }catch (IOException e){
             System.out.println("Какая-то ошибка");
         }
-        RegExSearch search1 = new RegExSearch();;
+        ISearchEngine search1 = new RegExSearch();;
         SearchEngineCaseInsensitive decoratorSearch1 = new SearchEngineCaseInsensitive(search1);
         System.out.println("поиск RegExSearch --");
 
@@ -30,7 +31,7 @@ public class SearchEngineCaseInsensitiveMain {
         System.out.println("Количество слов \"и\" - " + count2);
         System.out.println("Количество слов \"мир\" - " + count3);
 
-        EasySearch search2 = new EasySearch();
+        ISearchEngine search2 = new EasySearch();
         SearchEngineCaseInsensitive decoratorSearch2 = new SearchEngineCaseInsensitive(search2);
         System.out.println("поиск EasySearch --");
 

@@ -25,6 +25,7 @@ public class RegExSearch implements ISearchEngine {
     @Override
     public long search(String text, String word) {
         Long count = 0L;
+        Character l;
         Pattern p;
         if (isCaseInsensitive) {
              p = Pattern.compile("(\\p{Punct}+|\\s+|\\A+)" + (word) + "(\\p{Punct}*|\\s*)",Pattern.CASE_INSENSITIVE|Pattern.UNICODE_CASE);
